@@ -85,25 +85,25 @@
         <h2>Contact Extol Tree Care</h2>
         <p>If you’re looking for a free estimate or have any questions about our services please send us a message.</p>
 
-        <form method="post" action="https://api.formcake.com/api/form/ee0bafa3-aaf5-4e50-b4bc-28b59b8a0750/submission">
+        <form method="POST" action="https://api.formcake.com/api/form/ee0bafa3-aaf5-4e50-b4bc-28b59b8a0750/submission">
           <fieldset>
-            <label for="">Full Name</label>
-            <input type="text" required>
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required>
           </fieldset>
 
           <fieldset>
-            <label for="">Email Address</label>
-            <input type="email" required>
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required>
           </fieldset>
 
           <fieldset>
-            <label for="">Phone Number</label>
-            <input type="tel" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" id="phone" required>
           </fieldset>
 
           <fieldset>
-            <label for="">Message</label>
-            <textarea rows="5" required></textarea>
+            <label for="message">Message</label>
+            <textarea rows="5" name="message" id="message" required></textarea>
           </fieldset>
 
           <button type="submit" class="btn">Send Message</button>
