@@ -97,9 +97,17 @@ label, input, textarea {
   width: 100%;
 }
 
+:is(input, textarea):focus {
+  outline: 0;
+}
+
 label {
   color: var(--muted);
   font-size: 0.8rem;
+}
+
+fieldset:has(:focus) {
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px blue;
 }
 
 .content {
