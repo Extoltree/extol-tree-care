@@ -121,10 +121,15 @@
   </div>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (location.hash !== '#success') return false
+      document.querySelector('body').insertAdjacentHTML('beforeend', '<div class="success">Thank you for your message! <br> We’ll get back to you soon!</div>')
+    })
+
     document.addEventListener('click', (evt) => {
       if (!evt.target.closest('a')) return
       evt.preventDefault()
-      document.querySelector(evt.target.hash).scrollIntoView({ behavior: "smooth"   })
+      document.querySelector(evt.target.hash).scrollIntoView({ behavior: "smooth" })
     })
   </script>
 </body>

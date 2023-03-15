@@ -93,6 +93,7 @@ label, input, textarea {
   display: block;
   font-family: inherit;
   font-size: inherit;
+  font-variant-numeric: lining-nums;
   width: 100%;
 }
 
@@ -207,4 +208,26 @@ label {
   max-height: 90vh;
   max-width: 90vw;
   object-fit: contain;
+}
+
+.success {
+  animation: fadeout 2s 5s 1 forwards;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.3);
+  color: var(--green);
+  display: inline-block;
+  left: 50%;
+  padding: 1rem 2rem;
+  position: fixed;
+  text-align: center;
+  top: 2rem;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+@keyframes fadeout {
+  to {
+    opacity: 0;
+  }
 }
