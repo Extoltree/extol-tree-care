@@ -172,23 +172,31 @@ fieldset:has(:focus) {
 }
 
 .btn {
-  background: var(--orange);
-  border: 0;
-  border-radius: 0.5rem;
-  color: var(--cream);
-  cursor: pointer;
-  display: inline-block;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 1rem;
-  text-decoration: none;
-  transition: all 0.3s;
-  white-space: nowrap;
+  background: var(--orange) !important;
+  border: 0 !important;
+  border-radius: 0.5rem !important;
+  color: var(--cream) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  min-height: revert !important;
+  padding: 1rem !important;
+  text-decoration: none !important;
+  transition: all 0.3s !important;
+  white-space: nowrap !important;
 }
 
 .btn:hover {
-  filter: contrast(130%);;
+  filter: contrast(130%) !important;
+}
+
+.btn:focus {
+  box-shadow: revert !important;
+  filter: contrast(130%) !important;
 }
 
 #about, #contact {
