@@ -28,6 +28,10 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
+a {
+  color: var(--orange);
+}
+
 img {
   vertical-align: middle;
 }
