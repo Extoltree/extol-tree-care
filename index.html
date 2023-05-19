@@ -24,7 +24,6 @@
       <div>
         <h1>Professional tree services for the Southern New Hampshire area.</h1>
         <p>Extol Tree Care takes pride in providing reliable services. We value quality, competence, and honesty in all we do.</p>
-        
         <div class="flex">
           <button type="button" id="work-request-button-36236cf1-f083-4607-afd6-91ed18bdda9e" class="btn">Request an Estimate</button>
           <div>
@@ -32,9 +31,9 @@
             <small>8am–5pm, Monday–Friday</small>
           </div>
         </div>
+        <p><small>Already have a request? Log in to our secure <a href="https://clienthub.getjobber.com/client_hubs/36236cf1-f083-4607-afd6-91ed18bdda9e/login/new?source=share_login">Client Hub</a>.</small></p>
       </div>
     </div>
-
     <img src="images/forest.webp" class="bleed" width="900" height="900" loading="lazy" alt="A large expanse of a forest">
 </header>
   
@@ -105,12 +104,6 @@
       if (!evt.target.closest('#contact button')) return
       evt.preventDefault()
       document.querySelector('header button').click()
-    })
-
-    document.addEventListener('click', (evt) => {
-      if (!evt.target.closest('a')) return
-      evt.preventDefault()
-      document.querySelector(evt.target.hash).scrollIntoView({ behavior: "smooth" })
     })
   </script>
 </body>
