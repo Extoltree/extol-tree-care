@@ -48,19 +48,19 @@ nav {
   grid-column: 3;
   grid-row: 1;
   z-index: 2;
-}
 
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 footer {
@@ -75,7 +75,8 @@ footer {
   gap: 1rem;
 }
 
-strong, small {
+strong,
+small {
   display: block;
   font-variant-numeric: lining-nums;
 }
@@ -96,7 +97,9 @@ fieldset {
   padding: 8px;
 }
 
-label, input, textarea {
+label,
+input,
+textarea {
   border: 0;
   display: block;
   font-family: inherit;
@@ -198,15 +201,15 @@ fieldset:has(:focus) {
   text-decoration: none !important;
   transition: all 0.3s !important;
   white-space: nowrap !important;
-}
 
-.btn:hover {
-  filter: contrast(130%) !important;
-}
+  &:hover {
+    filter: contrast(130%) !important;
+  }
 
-.btn:focus {
-  box-shadow: revert !important;
-  filter: contrast(130%) !important;
+  &:focus {
+    box-shadow: revert !important;
+    filter: contrast(130%) !important;
+  }
 }
 
 #about,
@@ -220,28 +223,25 @@ fieldset:has(:focus) {
 }
 
 #monogram {
-  bottom: 0;
   display: grid;
-  left: 0;
+  inset: 0;
   opacity: 0.12;
   place-items: center;
   pointer-events: none;
   position: fixed;
-  right: 0;
-  top: 0;
-}
 
-#monogram img {
-  max-height: 90vh;
-  max-width: 90vw;
-  object-fit: contain;
+  img {
+    max-height: 90vh;
+    max-width: 90vw;
+    object-fit: contain;
+  }
 }
 
 .success {
   animation: fadeout 2s 5s 1 forwards;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px -3px rgb(0 0 0 / 0.3);
   color: var(--green);
   display: inline-block;
   left: 50%;
