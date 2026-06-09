@@ -5,7 +5,9 @@
   --orange: #cd7443;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -17,12 +19,14 @@ body {
   background: var(--cream);
   color: #222;
   font-size: 1rem;
-  font-family: 'Raleway', helvetica, arial, sans-serif;
+  font-family: "Raleway", helvetica, arial, sans-serif;
   line-height: 1.4;
   margin: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--green);
   line-height: 1.2;
   text-wrap: balance;
@@ -111,7 +115,9 @@ label {
 }
 
 fieldset:has(:focus) {
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px blue;
+  box-shadow:
+    inset 0 0 0 1px #fff,
+    inset 0 0 0 3px blue;
 }
 
 .content {
@@ -120,7 +126,7 @@ fieldset:has(:focus) {
   z-index: 2;
 }
 
-[class*='bleed'] > .bleed {
+[class*="bleed"] > .bleed {
   height: 40vh;
   width: 100%;
   object-fit: cover;
@@ -148,7 +154,7 @@ fieldset:has(:focus) {
     z-index: 2;
   }
 
-  [class*='bleed'] > .bleed {
+  [class*="bleed"] > .bleed {
     grid-row: 1;
     height: 100%;
   }
@@ -203,7 +209,8 @@ fieldset:has(:focus) {
   filter: contrast(130%) !important;
 }
 
-#about, #contact {
+#about,
+#contact {
   background: #111;
   color: var(--cream);
 }
