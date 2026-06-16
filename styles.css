@@ -32,6 +32,12 @@ h3 {
   text-wrap: balance;
 }
 
+ul[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: var(--orange);
 }
@@ -124,9 +130,41 @@ fieldset:has(:focus) {
 }
 
 .content {
+  container-type: inline-size;
   padding: 1rem;
   position: relative;
   z-index: 2;
+}
+
+.boxes {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @container (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-block: 0 0.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+#callout {
+  background:
+    linear-gradient(var(--cream), var(--cream)), linear-gradient(var(--cream), var(--cream));
+  background-blend-mode: multiply;
+  border-radius: 0.5rem;
+  margin-block: 2rem 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
 }
 
 [class*="bleed"] > .bleed {
@@ -210,6 +248,17 @@ fieldset:has(:focus) {
     box-shadow: revert !important;
     filter: contrast(130%) !important;
   }
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--orange);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  padding: 0;
+  text-decoration: underline;
 }
 
 #about,
