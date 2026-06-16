@@ -287,10 +287,10 @@ fieldset:has(:focus) {
 #contact {
   background: #111;
   color: var(--cream);
-}
 
-:is(#about, #contact) h2 {
-  color: inherit;
+  h1 {
+    color: var(--cream);
+  }
 }
 
 #testimonials {
