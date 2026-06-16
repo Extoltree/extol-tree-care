@@ -293,6 +293,49 @@ fieldset:has(:focus) {
   color: inherit;
 }
 
+#testimonials {
+  background: var(--orange);
+  color: #fff;
+
+  .content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+    max-width: 1300px;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  blockquote {
+    font-size: 1.1rem;
+    font-family: "Merriweather";
+    font-weight: 300;
+    margin: 0;
+
+    p::before {
+      content: "“";
+    }
+
+    p::after {
+      content: "”";
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
 #monogram {
   display: grid;
   inset: 0;
