@@ -139,7 +139,7 @@
             If you’re looking for a free estimate or have any questions about our services please
             get in touch with us.
           </p>
-          <button type="button" class="btn">Request an Estimate</button>
+          <button type="button" class="btn" data-open-form>Request an Estimate</button>
           <p>or call us between 8am–5pm, Monday–Friday:</p>
           <p><strong>(603) 369-7475</strong></p>
         </div>
@@ -168,7 +168,7 @@
     ></script>
     <script>
       document.addEventListener("click", (evt) => {
-        if (!evt.target.closest("#contact button")) return
+        if (!evt.target.closest("[data-open-form]")) return
         evt.preventDefault()
         document.querySelector("header button").click()
       })
