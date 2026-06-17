@@ -21,16 +21,12 @@
     />
     <link
       rel="preload"
-      href="fonts/merriweather-latin-vf.woff2"
+      href="fonts/merriweather-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
 
-    <link
-      rel="stylesheet"
-      href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -51,6 +47,7 @@
             type="button"
             id="work-request-button-36236cf1-f083-4607-afd6-91ed18bdda9e"
             class="btn"
+            data-open-form
           >
             Request an Estimate
           </button>
@@ -517,16 +514,53 @@
       <img src="images/monogram.webp" width="512" height="512" alt="" />
     </div>
 
-    <script
-      src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_dialog_snippet.js"
-      clienthub_id="36236cf1-f083-4607-afd6-91ed18bdda9e"
-      form_url="https://clienthub.getjobber.com/client_hubs/36236cf1-f083-4607-afd6-91ed18bdda9e/public/work_request/embedded_dialog_work_request_form"
-    ></script>
     <script>
-      document.addEventListener("click", (evt) => {
-        if (!evt.target.closest("[data-open-form]")) return
+      // Lazy-load the Jobber work-request form on first interaction. Loading the
+      // snippet eagerly pulls in ~60 requests (Maps, reCAPTCHA, Stripe, FullStory,
+      // etc.) before the user ever asks for the form, so we defer it until a CTA
+      // is clicked. Every CTA carries [data-open-form]; the snippet wires the
+      // header button (the one with the clienthub id) which we trigger to open.
+      const CLIENT_HUB_ID = "36236cf1-f083-4607-afd6-91ed18bdda9e"
+      const FORM_URL =
+        "https://clienthub.getjobber.com/client_hubs/36236cf1-f083-4607-afd6-91ed18bdda9e/public/work_request/embedded_dialog_work_request_form"
+      const SNIPPET_SRC =
+        "https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_dialog_snippet.js"
+      const EMBED_CSS =
+        "https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css"
+
+      let formLoaded = false
+
+      function loadWorkRequestForm() {
+        const css = document.createElement("link")
+        css.rel = "stylesheet"
+        css.href = EMBED_CSS
+        document.head.appendChild(css)
+
+        return new Promise((resolve) => {
+          const script = document.createElement("script")
+          script.src = SNIPPET_SRC
+          script.setAttribute("clienthub_id", CLIENT_HUB_ID)
+          script.setAttribute("form_url", FORM_URL)
+          script.onload = resolve
+          document.body.appendChild(script)
+        })
+      }
+
+      document.addEventListener("click", async (evt) => {
+        const trigger = evt.target.closest("[data-open-form]")
+        if (!trigger) return
+
+        const headerButton = document.getElementById("work-request-button-" + CLIENT_HUB_ID)
+
+        // Once loaded, let the snippet's own handler open the dialog natively.
+        if (formLoaded && trigger === headerButton) return
+
         evt.preventDefault()
-        document.querySelector("header button").click()
+        if (!formLoaded) {
+          formLoaded = true
+          await loadWorkRequestForm()
+        }
+        headerButton.click()
       })
 
       document.addEventListener("DOMContentLoaded", () => {
